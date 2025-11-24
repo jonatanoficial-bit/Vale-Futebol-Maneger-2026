@@ -7768,11 +7768,34 @@ const players = [
 // - Copa (mata-mata ida e volta)
 // Você poderá criar outros campeonatos (Libertadores, estaduais etc.)
 const competitions = [
+  const competitions = [
   {
     id: "BRA-A",
     name: "Campeonato Brasileiro Série A",
     type: "league",
-    teams: ["RSP", "SPT", "MIN", "NOR"], // no futuro: 20 clubes
+    // 20 clubes da Série A que você já cadastrou no array teams
+    teams: [
+      "AMG", // Atlético-MG
+      "BAH", // Bahia
+      "BOT", // Botafogo
+      "CEA", // Ceará
+      "COR", // Corinthians
+      "CRU", // Cruzeiro
+      "FLA", // Flamengo
+      "FLU", // Fluminense
+      "FOR", // Fortaleza
+      "JUV", // Juventude
+      "GRE", // Grêmio
+      "INT", // Internacional
+      "MIR", // Mirassol
+      "PAL", // Palmeiras
+      "RBB", // RB Bragantino
+      "SAN", // Santos
+      "SAO", // São Paulo
+      "SPO", // Sport
+      "VAS", // Vasco
+      "VIT"  // Vitória
+    ],
     pointsForWin: 3,
     pointsForDraw: 1,
     pointsForLoss: 0,
@@ -7782,9 +7805,17 @@ const competitions = [
     id: "COPA-BR",
     name: "Copa do Brasil (Protótipo)",
     type: "cup",
-    teams: ["RSP", "SPT", "MIN", "NOR"], // mata-mata
+    // Pode usar os mesmos times, por enquanto
+    teams: [
+      "AMG", "BAH", "BOT", "CEA", "COR",
+      "CRU", "FLA", "FLU", "FOR", "JUV",
+      "GRE", "INT", "MIR", "PAL", "RBB",
+      "SAN", "SAO", "SPO", "VAS", "VIT"
+    ],
     twoLeggedTies: true
   }
+];
+
 ];
 
 // Jogadores disponíveis para transferência (simples)
