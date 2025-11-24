@@ -8501,3 +8501,25 @@ function setupEvents() {
 window.addEventListener("load", () => {
   setupEvents();
 });
+// =========================
+// INICIAR NOVO JOGO
+// =========================
+function startNewGame() {
+    // Pega o time selecionado
+    const selectedTeamId = document.getElementById("selectedTeam").value;
+
+    if (!selectedTeamId) {
+        alert("Selecione um time para começar!");
+        return;
+    }
+
+    // Salva o time escolhido
+    localStorage.setItem("selectedTeamId", selectedTeamId);
+
+    // Monta lista com jogadores do time escolhido
+    const squad = players.filter(p => p.teamId === selectedTeamId);
+    localStorage.setItem("currentPlayers", JSON.stringify(squad));
+
+    // Redireciona para a tela principal do jogo
+    window.location.href = "game.html";
+}
