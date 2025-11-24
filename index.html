@@ -3,117 +3,153 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Brazil Football Manager 1.0</title>
+    <title>Vale Futebol Manager 2026</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <div id="app">
         <!-- TELA INICIAL -->
         <section id="screen-main-menu" class="screen active">
-            <h1>Brazil Football Manager 1.0</h1>
-            <button id="btn-new-game">Novo Jogo</button>
-            <button id="btn-continue-game">Continuar Jogo</button>
+            <div class="start-layout">
+                <div class="start-cover-panel">
+                    <!-- Capa do jogo (VOCÊ TROCA ESSA IMAGEM DEPOIS) -->
+                    <!-- Exemplo de caminho: assets/ui/capa-jogo.png -->
+                    <img src="assets/ui/capa-jogo.png" alt="Capa do jogo" class="cover-image" />
+                </div>
+                <div class="start-actions-panel">
+                    <h1>Vale Futebol Manager 2026</h1>
+                    <p class="subtitle">
+                        Assuma o comando de um clube brasileiro, dispute estaduais, Copa do Brasil e Brasileirão,
+                        monte seu elenco e conquiste tudo.
+                    </p>
+                    <div class="start-buttons">
+                        <button id="btn-new-game" class="btn-primary">Novo Jogo</button>
+                        <button id="btn-continue-game" class="btn-secondary">Continuar Jogo</button>
+                    </div>
+                    <p class="hint">
+                        Dica: você pode trocar a capa em <code>assets/ui/capa-jogo.png</code>.
+                    </p>
+                </div>
+            </div>
         </section>
 
         <!-- NOVO JOGO: ESCOLHA DE TIME -->
         <section id="screen-new-game" class="screen">
             <h2>Escolha o time para treinar</h2>
             <p>Selecione um clube e comece sua carreira como técnico.</p>
-            <select id="team-select"></select>
-            <div class="field">
-                <label for="coach-name">Seu nome (técnico):</label>
-                <input type="text" id="coach-name" placeholder="Ex: Jonatan Vale" />
+
+            <div class="new-game-layout">
+                <div class="new-game-form">
+                    <label for="team-select" class="field-label">Clube:</label>
+                    <select id="team-select"></select>
+
+                    <div class="field">
+                        <label for="coach-name">Seu nome (técnico):</label>
+                        <input type="text" id="coach-name" placeholder="Ex: Jonatan Vale" />
+                    </div>
+
+                    <button id="btn-start-game" class="btn-primary">Iniciar Carreira</button>
+                    <button class="btn-secondary" data-back="screen-main-menu">Voltar</button>
+                </div>
+
+                <div class="new-game-preview">
+                    <h3>Pré-visualização</h3>
+                    <p>Quando você selecionar um time, você poderá colocar aqui o escudo e uma breve descrição.</p>
+                    <!-- Você pode depois usar JS para preencher dinamicamente -->
+                    <div class="preview-logo-box">
+                        <img src="assets/logos/default.png" alt="Escudo do clube" class="preview-logo" />
+                        <p class="preview-club-name">Escudo do clube escolhido</p>
+                    </div>
+                </div>
             </div>
-            <button id="btn-start-game">Iniciar Carreira</button>
-            <button class="btn-secondary" data-back="screen-main-menu">Voltar</button>
         </section>
 
         <!-- DASHBOARD DO TÉCNICO -->
         <section id="screen-dashboard" class="screen">
             <header class="top-bar">
-                <div>
+                <div class="top-bar-info">
                     <h2 id="dashboard-team-name"></h2>
                     <p id="dashboard-competition-info"></p>
-                </div>
-                <div>
                     <p><strong>Técnico:</strong> <span id="dashboard-coach-name"></span></p>
                     <p><strong>Temporada:</strong> <span id="dashboard-season-year"></span></p>
+                    <p><strong>Saldo do clube:</strong> <span id="club-balance"></span></p>
+                </div>
+
+                <!-- LOBBY / IMAGEM QUANDO O JOGADOR ESTÁ JOGANDO -->
+                <div class="lobby-panel">
+                    <!-- VOCÊ troca essa imagem por uma arte de vestiário, estádio, etc. -->
+                    <!-- Exemplo: assets/ui/lobby.png -->
+                    <img src="assets/ui/lobby.png" alt="Lobby do clube" class="lobby-image" />
                 </div>
             </header>
+
+            <!-- STRIP DE MÍDIA (ESCUDO E CAMPEÃO) -->
+            <div class="media-strip">
+                <div class="media-item">
+                    <h3>Seu escudo</h3>
+                    <img id="dashboard-team-logo" src="assets/logos/default.png" alt="Escudo do time" class="media-logo" />
+                    <p class="media-caption">Você pode ligar isso ao time selecionado futuramente via JS.</p>
+                </div>
+                <div class="media-item">
+                    <h3>Último campeão</h3>
+                    <!-- Depois você pode trocar dinamicamente com JS -->
+                    <img src="assets/ui/champion-placeholder.png" alt="Último campeão" class="media-champion" />
+                    <p class="media-caption">
+                        Foto do campeão da temporada (Brasileirão, Copa do Brasil, etc.).
+                    </p>
+                </div>
+            </div>
 
             <div class="dashboard-grid">
                 <div class="card">
                     <h3>Próximo jogo</h3>
                     <p id="next-match-info">Nenhum jogo agendado.</p>
-                    <button id="btn-play-next-match">Jogar próxima partida</button>
+                    <button id="btn-play-next-match" class="btn-primary">Jogar próxima partida</button>
                 </div>
 
                 <div class="card">
                     <h3>Elenco</h3>
                     <p>Veja seus jogadores, atributos e moral.</p>
-                    <button id="btn-go-squad">Ver elenco</button>
+                    <button id="btn-go-squad" class="btn-secondary">Ver elenco</button>
                 </div>
 
                 <div class="card">
                     <h3>Campeonatos</h3>
                     <p>Tabela, resultados e classificação geral.</p>
-                    <button id="btn-go-competitions">Ver campeonatos</button>
+                    <button id="btn-go-competitions" class="btn-secondary">Ver campeonatos</button>
                 </div>
 
                 <div class="card">
                     <h3>Transferências</h3>
                     <p>Contrate e venda jogadores (versão simples).</p>
-                    <button id="btn-go-transfers">Ir para transferências</button>
+                    <button id="btn-go-transfers" class="btn-secondary">Ir para transferências</button>
                 </div>
 
                 <div class="card">
-                    <h3>Clube</h3>
-                    <p>Finanças básicas do clube.</p>
-                    <p>Saldo: R$ <span id="club-balance">0</span> mi</p>
-                </div>
-
-                <div class="card">
-                    <h3>Salvar</h3>
-                    <p>O jogo salva automaticamente, mas você pode forçar o salvamento.</p>
-                    <button id="btn-save-game">Salvar agora</button>
+                    <h3>Salvar Jogo</h3>
+                    <p>Salve o progresso da sua carreira.</p>
+                    <button id="btn-save-game" class="btn-secondary">Salvar agora</button>
                 </div>
             </div>
-
-            <button class="btn-secondary" data-back="screen-main-menu">Sair para Menu</button>
-        </section>
-
-        <!-- TELA DE ELENCO -->
-        <section id="screen-squad" class="screen">
-            <h2>Elenco</h2>
-            <table id="squad-table">
-                <thead>
-                    <tr>
-                        <th>Foto</th>
-                        <th>Nome</th>
-                        <th>Posição</th>
-                        <th>OVR</th>
-                        <th>Idade</th>
-                        <th>Moral</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-            <button class="btn-secondary" data-back="screen-dashboard">Voltar</button>
         </section>
 
         <!-- TELA DE CAMPEONATOS -->
         <section id="screen-competitions" class="screen">
             <h2>Campeonatos</h2>
-            <select id="competition-select"></select>
+            <p>Veja tabela e próximos jogos das competições.</p>
 
-            <div id="competition-content">
-                <!-- Tabela do campeonato selecionado -->
-                <div id="league-table-wrapper" class="card">
+            <div class="field">
+                <label for="competition-select">Selecione a competição:</label>
+                <select id="competition-select"></select>
+            </div>
+
+            <div class="competitions-layout">
+                <div class="card">
                     <h3>Tabela</h3>
                     <table id="league-table">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <th>Pos</th>
                                 <th>Time</th>
                                 <th>Pts</th>
                                 <th>J</th>
@@ -134,6 +170,7 @@
                     <ul id="fixtures-list"></ul>
                 </div>
             </div>
+
             <button class="btn-secondary" data-back="screen-dashboard">Voltar</button>
         </section>
 
@@ -146,47 +183,73 @@
                 <div class="card">
                     <h3>Placar</h3>
                     <p id="match-score"></p>
-                    <p id="match-minute"></p>
+                    <p><strong>Minuto:</strong> <span id="match-minute"></span></p>
+                    <button id="btn-start-simulation" class="btn-primary">Simular</button>
                 </div>
+
                 <div class="card">
-                    <h3>Resumo</h3>
-                    <ul id="match-log"></ul>
-                </div>
-                <div class="card">
-                    <h3>Estrategia</h3>
-                    <label for="tactic-select">Estilo de jogo:</label>
-                    <select id="tactic-select">
-                        <option value="defensivo">Defensivo</option>
-                        <option value="equilibrado" selected>Equilibrado</option>
-                        <option value="ofensivo">Ofensivo</option>
-                    </select>
-                    <p class="hint">
-                        A estratégia influencia levemente o ataque/defesa do seu time na simulação.
-                    </p>
-                    <button id="btn-start-simulation">Iniciar simulação</button>
+                    <h3>Eventos da partida</h3>
+                    <div id="match-log" class="match-log"></div>
                 </div>
             </div>
 
-            <button class="btn-secondary" data-back="screen-dashboard">Sair da partida</button>
+            <button class="btn-secondary" data-back="screen-dashboard">Voltar ao dashboard</button>
         </section>
 
-        <!-- TELA DE TRANSFERÊNCIAS (BEM SIMPLES) -->
-        <section id="screen-transfers" class="screen">
-            <h2>Transferências (protótipo simples)</h2>
-            <p>Lista de jogadores livres / de outros clubes para comprar:</p>
-            <table id="transfer-table">
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Posição</th>
-                        <th>OVR</th>
-                        <th>Clube atual</th>
-                        <th>Valor (mi R$)</th>
-                        <th>Ação</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
+        <!-- TELA DE ELENCO -->
+        <section id="screen-squad" class="screen">
+            <h2>Elenco atual</h2>
+            <p>Aqui você vê todos os jogadores do clube, com atributos gerais.</p>
+
+            <div class="card">
+                <table id="squad-table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Posição</th>
+                            <th>Overall</th>
+                            <th>Idade</th>
+                            <th>Moral</th>
+                            <th>Valor (mi R$)</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <button class="btn-secondary" data-back="screen-dashboard">Voltar</button>
+        </section>
+
+        <!-- TELA DE TRANSFERÊNCIAS -->
+        <section id="screen-transfer-market" class="screen">
+            <h2>Mercado de transferências</h2>
+            <p>Lista simples de jogadores disponíveis para compra/venda.</p>
+
+            <div class="field">
+                <label for="tactic-select">Filtro tático (futuro):</label>
+                <select id="tactic-select">
+                    <option value="all">Todos</option>
+                    <option value="def">Mais defensivos</option>
+                    <option value="atk">Mais ofensivos</option>
+                </select>
+            </div>
+
+            <div class="card">
+                <table id="transfer-table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Posição</th>
+                            <th>Overall</th>
+                            <th>Clube atual</th>
+                            <th>Valor (mi R$)</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
             <button class="btn-secondary" data-back="screen-dashboard">Voltar</button>
         </section>
     </div>
