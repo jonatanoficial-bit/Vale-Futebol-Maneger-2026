@@ -373,4 +373,28 @@ const players = [
   makePlayer("FOR_ZE_WELISON", "FOR", "Zé Welison", "VOL", 77),
   makePlayer("FOR_MOISES", "FOR", "Moisés", "ATA", 79),
   makePlayer("FOR_SASHA", "FOR", "Sasha", "ATA", 77),
-  makePlayer("FOR_CA
+  
+> Detalhe importante:  
+> Tire a vírgula depois do Sasha, porque agora ele vira o **último** jogador da lista.
+
+5. Salve (**Commit changes**).
+
+---
+
+## 🔄 Depois disso
+
+1. Abra o jogo no navegador (GitHub Pages).  
+2. Aperte **CTRL + F5** (ou limpar cache no celular).
+3. Clique em **NOVO JOGO**:
+   - Deve abrir a tela de:
+     - Nome do técnico
+     - Select de time
+4. Seleciona um time ➜ **INICIAR CARREIRA** ➜ Dashboard abre.
+
+---
+
+Se, depois dessa correção, o **Novo Jogo ainda não abrir**, me fala **exatamente** o que acontece (e, se conseguir, copia a mensagem de erro do console do navegador) que eu já te ajudo no próximo ajuste.
+
+Depois que o jogo estiver rodando redondo, a gente volta e completa com o resto dos jogadores da Série A/Série B.
+::contentReference[oaicite:2]{index=2}
+
