@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vale Futebol Manager 2026</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ============================ -->
+    <!--  TELA INICIAL                -->
+    <!-- ============================ -->
+    <div id="screen-home" class="screen active" style="background-image: url('assets/ui/menu_bg.jpg');">
+        <div class="menu-box">
+            <h1 class="game-title">VALE FUTEBOL MANAGER 2026</h1>
+
+            <button id="btn-new-game" class="btn-primary">NOVO JOGO</button>
+            <button id="btn-continue-game" class="btn-secondary">CONTINUAR</button>
+        </div>
+    </div>
+
+    <!-- ============================ -->
+    <!--  TELA NOVO JOGO              -->
+    <!-- ============================ -->
+    <div id="screen-new-game" class="screen" style="background-image: url('assets/ui/newgame_bg.jpg');">
+        <div class="panel">
+            <h2>Iniciar Nova Carreira</h2>
+
+            <label for="coach-name">Seu nome:</label>
+            <input type="text" id="coach-name" placeholder="Digite seu nome">
+
+            <label for="team-select">Escolha seu time:</label>
+            <select id="team-select"></select>
+
+            <button id="btn-start-game" class="btn-primary full">INICIAR CARREIRA</button>
+            <button data-back="screen-home" class="btn-secondary full">VOLTAR</button>
+        </div>
+    </div>
+
+    <!-- ============================ -->
+    <!--  DASHBOARD                   -->
+    <!-- ============================ -->
+    <div id="screen-dashboard" class="screen" style="background-image: url('assets/ui/lobby.jpg');">
+
+        <div class="dash-header">
+            <img id="dashboard-team-logo" class="team-logo-lg" src="">
+            <div>
+                <h2 id="dashboard-team-name"></h2>
+                <p>Técnico: <span id="dashboard-coach-name"></span></p>
+                <p>Temporada: <span id="dashboard-season-year"></span></p>
+                <p>Saldo: <span id="club-balance"></span></p>
+                <p><b id="dashboard-competition-info"></b></p>
+            </div>
+        </div>
+
+        <div class="dash-actions">
+            <button id="btn-go-squad" class="btn-primary">ELENCO</button>
+            <button id="btn-go-competitions" class="btn-primary">COMPETIÇÕES</button>
+            <button id="btn-go-transfers" class="btn-primary">TRANSFERÊNCIAS</button>
+            <button id="btn-play-next-match" class="btn-green">JOGAR PRÓXIMO JOGO</button>
+            <button id="btn-save-game" class="btn-secondary">SALVAR</button>
+            <button data-back="screen-home" class="btn-secondary">SAIR</button>
+        </div>
+
+        <div class="next-match-box">
+            <h3>Próxima Partida:</h3>
+            <p id="next-match-info"></p>
+        </div>
+    </div>
+
+    <!-- ============================ -->
+    <!--  ELENCO / SQUAD              -->
+    <!-- ============================ -->
+    <div id="screen-squad" class="screen">
+        <div class="panel wide">
+            <h2>Elenco</h2>
+
+            <table id="squad-table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Posição</th>
+                        <th>OVR</th>
+                        <th>Idade</th>
+                        <th>Morale</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <button data-back="screen-dashboard" class="btn-secondary full">VOLTAR</button>
+        </div>
+    </div>
+
+    <!-- ============================ -->
+    <!--  COMPETIÇÕES                 -->
+    <!-- ============================ -->
+    <div id="screen-competitions" class="screen">
+        <div class="panel wide">
+            <h2>Competições</h2>
+
+            <label>Selecione a competição:</label>
+            <select id="competition-select"></select>
+
+            <h3>Tabela da Liga</h3>
+            <table id="league-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Time</th>
+                        <th>Pontos</th>
+                        <th>J</th>
+                        <th>V</th>
+                        <th>E</th>
+                        <th>D</th>
+                        <th>GP</th>
+                        <th>GC</th>
+                        <th>SG</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <h3>Próximos Jogos</h3>
+            <ul id="fixtures-list"></ul>
+
+            <button data-back="screen-dashboard" class="btn-secondary full">VOLTAR</button>
+        </div>
+    </div>
+
+    <!-- ============================ -->
+    <!--  MERCADO DE TRANSFERÊNCIAS   -->
+    <!-- ============================ -->
+    <div id="screen-transfer-market" class="screen">
+        <div class="panel wide">
+            <h2>Mercado de Transferências</h2>
+
+            <table id="transfer-table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Posição</th>
+                        <th>OVR</th>
+                        <th>Clube</th>
+                        <th>Valor</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <button data-back="screen-dashboard" class="btn-secondary full">VOLTAR</button>
+        </div>
+    </div>
+
+    <!-- ============================ -->
+    <!--  TELA DE PARTIDA             -->
+    <!-- ============================ -->
+    <div id="screen-match" class="screen">
+        <div class="match-panel">
+            <h2 id="match-header"></h2>
+            <h1 id="match-score" class="score-big">- x -</h1>
+            <p id="match-minute"></p>
+
+            <div id="match-log" class="match-log"></div>
+
+            <button id="btn-start-simulation" class="btn-green full">SIMULAR PARTIDA</button>
+            <button data-back="screen-dashboard" class="btn-secondary full">VOLTAR</button>
+        </div>
+    </div>
+
+    <!-- SCRIPTS DO JOGO -->
+    <script src="database.js"></script>
+    <script src="game.js"></script>
+    <script src="ui.js"></script>
+
+</body>
+</html>
