@@ -1,382 +1,263 @@
+/* ==============================================
+   VALE FUTEBOL MANAGER 2026
+   CSS COMPLETO PROFISSIONAL
+   ============================================== */
+
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
 }
 
-/* Fundo geral */
 body {
-    min-height: 100vh;
-    background: radial-gradient(circle at top, #253b6e 0, #050816 45%, #020308 100%);
-    color: #f5f5f5;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 16px;
+    background: #0b0f1c;
+    color: #fff;
+    overflow-x: hidden;
 }
 
-/* Container principal */
-#app {
-    width: 100%;
-    max-width: 1100px;
-    background: rgba(5, 8, 22, 0.96);
-    border-radius: 18px;
-    padding: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.65);
-}
+/* -----------------------------
+   ESTRUTURA DAS TELAS
+-------------------------------- */
 
-/* Telas */
 .screen {
     display: none;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    padding: 30px;
 }
 
 .screen.active {
     display: block;
 }
 
-/* Títulos & textos */
-h1 {
-    font-size: 2.2rem;
-    margin-bottom: 12px;
+/* -----------------------------
+   CAIXAS E PAINÉIS
+-------------------------------- */
+
+.menu-box {
+    width: 450px;
+    margin: 150px auto;
+    text-align: center;
+    background: rgba(0,0,0,0.65);
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid #3a6ad8;
+    box-shadow: 0px 0px 20px #000;
 }
 
-h2 {
-    font-size: 1.7rem;
-    margin-bottom: 10px;
+.panel {
+    width: 450px;
+    margin: 60px auto;
+    background: rgba(0,0,0,0.7);
+    border-radius: 12px;
+    padding: 30px;
+    border: 1px solid #4e8cff;
+    box-shadow: 0 0 25px rgba(0,0,0,0.7);
 }
 
-h3 {
-    font-size: 1.2rem;
-    margin-bottom: 8px;
+.panel.wide {
+    width: 85%;
 }
 
-.subtitle {
-    font-size: 0.95rem;
-    opacity: 0.9;
-    margin-bottom: 20px;
-}
-
-/* BOTÕES */
-button {
-    border: none;
-    border-radius: 999px;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 0.95rem;
-    transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
-}
-
-button:active {
-    transform: scale(0.97);
-}
-
-.btn-primary {
-    background: linear-gradient(135deg, #0ea5e9, #22c55e);
-    color: #020617;
-    font-weight: 600;
-    box-shadow: 0 8px 18px rgba(34, 197, 94, 0.45);
-    margin-right: 8px;
-}
-
-.btn-primary:hover {
-    background: linear-gradient(135deg, #38bdf8, #4ade80);
-}
-
-.btn-secondary {
-    background: #111827;
-    color: #e5e7eb;
-    border: 1px solid #1f2937;
-}
-
-.btn-secondary:hover {
-    background: #1f2937;
-}
-
-/* Campos / forms */
-.field {
-    margin: 12px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.field label,
-.field-label {
-    font-size: 0.9rem;
-    opacity: 0.9;
-}
-
-input[type="text"],
-select {
-    padding: 8px 10px;
-    border-radius: 8px;
-    border: 1px solid #1f2937;
-    background: #020617;
-    color: #e5e7eb;
-    outline: none;
-    font-size: 0.95rem;
-}
-
-input[type="text"]:focus,
-select:focus {
-    border-color: #22c55e;
-}
-
-/* ======= TELA INICIAL / CAPA ======= */
-.start-layout {
-    display: flex;
-    gap: 24px;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.start-cover-panel {
-    flex: 1 1 320px;
-    display: flex;
-    justify-content: center;
-}
-
-.cover-image {
-    max-width: 360px;
-    width: 100%;
-    border-radius: 18px;
-    box-shadow: 0 18px 30px rgba(0, 0, 0, 0.7);
-    object-fit: cover;
-}
-
-.start-actions-panel {
-    flex: 1 1 320px;
-}
-
-.start-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 8px;
-}
-
-.hint {
-    font-size: 0.8rem;
-    opacity: 0.8;
-}
-
-/* NOVO JOGO */
-.new-game-layout {
-    display: flex;
-    gap: 24px;
-    margin-top: 12px;
-    flex-wrap: wrap;
-}
-
-.new-game-form {
-    flex: 1 1 260px;
-}
-
-.new-game-preview {
-    flex: 1 1 260px;
-    background: #020617;
-    border-radius: 14px;
-    padding: 14px;
-    border: 1px solid #111827;
-}
-
-.preview-logo-box {
-    margin-top: 12px;
+.match-panel {
+    width: 600px;
+    margin: 50px auto;
+    background: rgba(0,0,0,0.75);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #2f75ff;
+    box-shadow: 0 0 40px #000;
     text-align: center;
 }
 
-.preview-logo {
-    width: 90px;
-    height: 90px;
-    object-fit: contain;
-    border-radius: 16px;
-    border: 1px solid #1f2937;
-    background: #020617;
-    margin-bottom: 6px;
+/* -----------------------------
+   TÍTULOS
+-------------------------------- */
+
+.game-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px #000;
 }
 
-.preview-club-name {
-    font-size: 0.9rem;
-    opacity: 0.8;
+/* -----------------------------
+   BOTÕES
+-------------------------------- */
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 18px;
+    font-size: 16px;
+    transition: 0.2s;
 }
 
-/* TOP BAR / DASHBOARD */
-.top-bar {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    align-items: flex-start;
-    margin-bottom: 18px;
+.btn-primary {
+    background: #1d4df5;
+    color: #fff;
+    border: 1px solid #5d8dff;
+    margin: 8px 0;
+}
+.btn-primary:hover {
+    background: #3667ff;
+    transform: scale(1.02);
 }
 
-.top-bar-info p {
-    font-size: 0.9rem;
-    margin-bottom: 3px;
+.btn-secondary {
+    background: #3b3b3b;
+    color: #fff;
+    border: 1px solid #777;
+    margin: 8px 0;
+}
+.btn-secondary:hover {
+    background: #555;
 }
 
-/* LOBBY */
-.lobby-panel {
-    flex: 0 0 260px;
-    display: flex;
-    justify-content: flex-end;
+.btn-green {
+    background: #0bb84f;
+    color: #fff;
+    border: 1px solid #12e06a;
+}
+.btn-green:hover {
+    background: #12d062;
 }
 
-.lobby-image {
+button.full {
     width: 100%;
-    max-width: 260px;
-    border-radius: 14px;
-    object-fit: cover;
-    box-shadow: 0 14px 24px rgba(0, 0, 0, 0.7);
 }
 
-/* STRIP DE MÍDIA (ESCUDO / CAMPEÃO) */
-.media-strip {
-    display: flex;
-    gap: 18px;
-    flex-wrap: wrap;
-    margin-bottom: 18px;
-}
+/* -----------------------------
+   INPUTS
+-------------------------------- */
 
-.media-item {
-    flex: 1 1 240px;
-    background: #020617;
-    border-radius: 14px;
-    padding: 12px;
-    border: 1px solid #111827;
-}
-
-.media-logo,
-.media-champion {
+input, select {
     width: 100%;
-    max-width: 120px;
-    aspect-ratio: 1 / 1;
-    object-fit: contain;
+    padding: 10px;
+    margin-top: 6px;
+    margin-bottom: 18px;
+    border-radius: 6px;
+    border: 1px solid #666;
+    background: rgba(0,0,0,0.3);
+    color: #fff;
+    font-size: 15px;
+}
+
+/* -----------------------------
+   DASHBOARD
+-------------------------------- */
+
+.dash-header {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    background: rgba(0,0,0,0.6);
+    padding: 25px;
     border-radius: 12px;
-    background: #020617;
-    border: 1px solid #1f2937;
-    display: block;
-    margin: 6px 0;
+    border: 1px solid #4a79ff;
+    width: 85%;
+    margin: 20px auto;
 }
 
-.media-caption {
-    font-size: 0.8rem;
-    opacity: 0.8;
+.team-logo-lg {
+    width: 115px;
+    height: 115px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 10px;
+    padding: 8px;
 }
 
-/* GRID DO DASHBOARD */
-.dashboard-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 14px;
+.dash-actions {
+    width: 85%;
+    margin: 30px auto;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-/* CARD GENÉRICO */
-.card {
-    background: #020617;
-    border-radius: 14px;
-    padding: 12px;
-    border: 1px solid #111827;
-    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.55);
-    font-size: 0.9rem;
+.next-match-box {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
 }
 
-/* COMPETIÇÕES */
-.competitions-layout {
-    display: grid;
-    grid-template-columns: 2fr 1.5fr;
-    gap: 14px;
-    margin-top: 10px;
-}
+/* -----------------------------
+   TABELAS
+-------------------------------- */
 
-/* TABELAS */
 table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.85rem;
+    margin-top: 20px;
 }
 
-th,
-td {
-    padding: 6px 8px;
-    border-bottom: 1px solid #111827;
+thead {
+    background: #1c37a8;
 }
 
-th {
-    text-align: left;
-    background: #020617;
-    font-weight: 600;
-    font-size: 0.8rem;
+thead th {
+    padding: 10px;
+}
+
+tbody tr {
+    background: rgba(255,255,255,0.07);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 tbody tr:nth-child(even) {
-    background: #020617;
+    background: rgba(255,255,255,0.04);
 }
 
-/* LISTA DE PARTIDAS */
-#fixtures-list {
-    list-style: none;
-    max-height: 260px;
-    overflow-y: auto;
-    padding-right: 4px;
+tbody td {
+    padding: 10px;
+    text-align: center;
 }
 
-#fixtures-list li {
-    padding: 4px 0;
-    border-bottom: 1px solid #1f2937;
-    font-size: 0.85rem;
-}
+/* -----------------------------
+   TELA DE PARTIDA
+-------------------------------- */
 
-/* PARTIDA (SIMULAÇÃO) */
-.match-layout {
-    display: grid;
-    grid-template-columns: 1.3fr 2fr;
-    gap: 14px;
-    margin-top: 10px;
+.score-big {
+    font-size: 50px;
+    margin: 20px 0;
 }
 
 .match-log {
-    max-height: 320px;
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    height: 220px;
     overflow-y: auto;
-    padding-right: 4px;
+    margin: 20px 0;
     border-radius: 8px;
-    border: 1px solid #111827;
-    background: #020617;
-    font-size: 0.85rem;
+    border: 1px solid #2e4cff;
 }
 
-/* ELENCO E TRANSFERÊNCIAS */
-#squad-table,
-#transfer-table {
-    margin-top: 8px;
-}
+/* -----------------------------
+   RESPONSIVIDADE
+-------------------------------- */
 
-/* RESPONSIVO */
-@media (max-width: 800px) {
-    .top-bar {
+@media (max-width: 768px) {
+    .panel {
+        width: 90%;
+    }
+
+    .dash-header {
         flex-direction: column;
+        text-align: center;
+        width: 95%;
     }
 
-    .competitions-layout {
-        grid-template-columns: 1fr;
+    .dash-actions {
+        width: 95%;
     }
 
-    .match-layout {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 600px) {
-    #app {
-        padding: 14px;
-    }
-
-    .start-layout {
-        flex-direction: column;
-    }
-
-    .media-strip {
-        flex-direction: column;
+    .match-panel {
+        width: 90%;
     }
 }
