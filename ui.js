@@ -1,4 +1,4 @@
-\
+
  // ======================================================
  // VALE FUTEBOL MANAGER 2026
  // ui.js (Interface e navegação)
