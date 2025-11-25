@@ -1,263 +1,181 @@
-/* ==============================================
-   VALE FUTEBOL MANAGER 2026
-   CSS COMPLETO PROFISSIONAL
-   ============================================== */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Segoe UI", Arial, sans-serif;
-}
+/* =======================================================
+   VALE FUTEBOL MANAGER 2026 - VISUAL PROFISSIONAL
+   Layout limpo, moderno e responsivo
+======================================================= */
 
 body {
-    background: #0b0f1c;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #0d0d0d;
     color: #fff;
-    overflow-x: hidden;
+    overflow: hidden;
 }
-
-/* -----------------------------
-   ESTRUTURA DAS TELAS
--------------------------------- */
 
 .screen {
     display: none;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
-    background-size: cover;
-    background-position: center;
-    padding: 30px;
+    position: relative;
+    text-align: center;
+    padding-top: 40px;
 }
 
 .screen.active {
     display: block;
 }
 
-/* -----------------------------
-   CAIXAS E PAINÉIS
--------------------------------- */
-
-.menu-box {
-    width: 450px;
-    margin: 150px auto;
-    text-align: center;
-    background: rgba(0,0,0,0.65);
-    padding: 40px;
-    border-radius: 15px;
-    border: 1px solid #3a6ad8;
-    box-shadow: 0px 0px 20px #000;
+.background-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.35;
 }
-
-.panel {
-    width: 450px;
-    margin: 60px auto;
-    background: rgba(0,0,0,0.7);
-    border-radius: 12px;
-    padding: 30px;
-    border: 1px solid #4e8cff;
-    box-shadow: 0 0 25px rgba(0,0,0,0.7);
-}
-
-.panel.wide {
-    width: 85%;
-}
-
-.match-panel {
-    width: 600px;
-    margin: 50px auto;
-    background: rgba(0,0,0,0.75);
-    padding: 30px;
-    border-radius: 15px;
-    border: 1px solid #2f75ff;
-    box-shadow: 0 0 40px #000;
-    text-align: center;
-}
-
-/* -----------------------------
-   TÍTULOS
--------------------------------- */
 
 .game-title {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 30px;
-    text-shadow: 0 0 10px #000;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 40px;
+    text-shadow: 0 0 12px #000;
 }
 
-/* -----------------------------
-   BOTÕES
--------------------------------- */
+.center-box {
+    margin-top: 18vh;
+}
 
-button {
-    cursor: pointer;
+.btn {
+    padding: 12px 28px;
+    font-size: 1.2rem;
     border: none;
-    border-radius: 8px;
-    padding: 12px 18px;
-    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 10px;
+    font-weight: 600;
     transition: 0.2s;
 }
 
-.btn-primary {
-    background: #1d4df5;
-    color: #fff;
-    border: 1px solid #5d8dff;
-    margin: 8px 0;
-}
-.btn-primary:hover {
-    background: #3667ff;
-    transform: scale(1.02);
+.btn:hover {
+    transform: scale(1.07);
 }
 
-.btn-secondary {
-    background: #3b3b3b;
+.main-btn {
+    background: #00c853;
     color: #fff;
-    border: 1px solid #777;
-    margin: 8px 0;
 }
-.btn-secondary:hover {
+
+.secondary-btn {
+    background: #0066ff;
+    color: white;
+}
+
+.small-btn {
     background: #555;
-}
-
-.btn-green {
-    background: #0bb84f;
     color: #fff;
-    border: 1px solid #12e06a;
-}
-.btn-green:hover {
-    background: #12d062;
+    font-size: 1rem;
 }
 
-button.full {
-    width: 100%;
+.screen-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 25px;
 }
 
-/* -----------------------------
-   INPUTS
--------------------------------- */
+/* ---------------------- SELEÇÃO DE TIMES ---------------------- */
 
-input, select {
-    width: 100%;
-    padding: 10px;
-    margin-top: 6px;
-    margin-bottom: 18px;
-    border-radius: 6px;
-    border: 1px solid #666;
-    background: rgba(0,0,0,0.3);
-    color: #fff;
-    font-size: 15px;
-}
-
-/* -----------------------------
-   DASHBOARD
--------------------------------- */
-
-.dash-header {
-    display: flex;
-    align-items: center;
+.team-grid {
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
     gap: 25px;
-    background: rgba(0,0,0,0.6);
-    padding: 25px;
+}
+
+.team-card {
+    background: rgba(20,20,20,0.6);
+    padding: 15px;
     border-radius: 12px;
-    border: 1px solid #4a79ff;
-    width: 85%;
-    margin: 20px auto;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-.team-logo-lg {
-    width: 115px;
-    height: 115px;
+.team-card:hover {
+    transform: scale(1.08);
+    background: rgba(255,255,255,0.15);
+}
+
+.team-card img {
+    width: 80px;
+    height: 80px;
     object-fit: contain;
-    background: #fff;
-    border-radius: 10px;
-    padding: 8px;
 }
 
-.dash-actions {
+/* ---------------------- LOBBY ---------------------- */
+.lobby-info {
+    background: rgba(0,0,0,0.65);
+    padding: 20px 30px;
+    width: 350px;
+    border-radius: 15px;
+    margin: 12vh auto 0 auto;
+    box-shadow: 0 0 14px #000;
+}
+
+.lobby-logo {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+}
+
+.team-logo {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+}
+
+/* ---------------------- CLASSIFICAÇÃO ---------------------- */
+
+.standings-table {
     width: 85%;
-    margin: 30px auto;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+.standings-table th,
+.standings-table td {
+    padding: 10px;
+    border-bottom: 1px solid #444;
+}
+
+/* ---------------------- ELENCO ---------------------- */
+.squad-list {
+    width: 88%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.player-card {
+    background: rgba(20,20,20,0.7);
+    padding: 15px;
+    border-radius: 15px;
     display: flex;
     gap: 15px;
-    flex-wrap: wrap;
-    justify-content: center;
+    transition: 0.2s;
 }
 
-.next-match-box {
-    margin-top: 20px;
-    text-align: center;
-    font-size: 18px;
+.player-card img {
+    width: 75px;
+    height: 75px;
+    border-radius: 10px;
+    object-fit: cover;
 }
 
-/* -----------------------------
-   TABELAS
--------------------------------- */
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-thead {
-    background: #1c37a8;
-}
-
-thead th {
-    padding: 10px;
-}
-
-tbody tr {
-    background: rgba(255,255,255,0.07);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-tbody tr:nth-child(even) {
-    background: rgba(255,255,255,0.04);
-}
-
-tbody td {
-    padding: 10px;
-    text-align: center;
-}
-
-/* -----------------------------
-   TELA DE PARTIDA
--------------------------------- */
-
-.score-big {
-    font-size: 50px;
-    margin: 20px 0;
-}
-
-.match-log {
-    background: rgba(255,255,255,0.1);
-    padding: 20px;
-    height: 220px;
-    overflow-y: auto;
-    margin: 20px 0;
-    border-radius: 8px;
-    border: 1px solid #2e4cff;
-}
-
-/* -----------------------------
-   RESPONSIVIDADE
--------------------------------- */
-
-@media (max-width: 768px) {
-    .panel {
-        width: 90%;
-    }
-
-    .dash-header {
-        flex-direction: column;
-        text-align: center;
-        width: 95%;
-    }
-
-    .dash-actions {
-        width: 95%;
-    }
-
-    .match-panel {
-        width: 90%;
-    }
+.player-card:hover {
+    transform: scale(1.05);
+    background: rgba(255,255,255,0.15);
 }
